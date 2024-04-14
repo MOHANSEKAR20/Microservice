@@ -12,7 +12,7 @@ pipeline {
          stage('Verify Deploymnet') {
             steps {
                 withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'EKS-1', contextName: '', credentialsId: 'K8-token', namespace: 'webapps', serverUrl: 'https://6C81F32C212FDB38DD7C3BFC17201E89.gr7.ap-south-1.eks.amazonaws.com']]) {
-                  sh "kubectl svc all -n webapps"
+                  sh "kubectl get svc -n webapps"
                 }
             }
         }
